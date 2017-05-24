@@ -1,0 +1,36 @@
+<ion-view  class="play-lessions" view-title="Playlist Lessons" >
+    <ion-header class="bar bar-subheader s-bar">
+      <div class="language-filter">
+          <label class="item item-input item-select item-assertive">
+            <div class="input-label">
+              Language
+            </div>
+            <select name="language" id="language" ng-options="lang.lang for lang in langlist.languages track by lang.id" ng-model="langlist.optionSelected" ng-change="selectUpdated()">
+            </select>
+          </label>
+        </div>  
+        <div class="bar-header item-input-inset search">
+          
+          <label class="item-input-wrapper">
+            <input type="search" placeholder="Search" data-width="full" ng-model = "SearchQuery">
+            <i class="icon ion-ios-search-strong placeholder-icon"></i>
+          </label>
+          
+        </div>
+      </ion-header>  
+    <ion-content ng-class="{expanded:$scope.isExpanded}">
+
+        <!-- Lesons  Name -->
+        <div class="list lessons animate-fade-slide-in-left">
+        <ion-list>
+         <h2>{{playlist_name}}</h2>
+          <a ui-sref="app.lessonView({ id:{{lesson.lesson_id}},language:{{lesson.language}} })"  class="item item-icon-right" ng-repeat="lesson in lessons | filter : SearchQuery"> 
+            <i ng-if="lesson.rec_lesson!='1'" class="icon ion-chevron-right"></i>
+            <i ng-if="lesson.rec_lesson=='1'" class="icon ion-ios-star"></i> 
+            {{lesson.title}}
+          </a>      
+        </ion-list>      
+        </div>
+
+    </ion-content>
+</ion-view>

@@ -1,0 +1,54 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.gotsafety.gotsafety"
+        },
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.gotsafety.gotsafety"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.gotsafety.gotsafety"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.gotsafety.gotsafety"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.gotsafety.gotsafety"
+        },
+        "cordova-plugin-file-opener2": {
+            "PACKAGE_NAME": "com.gotsafety.gotsafety"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.gotsafety.gotsafety"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.gotsafety.gotsafety"
+        },
+        "cordova-plugin-screen-orientation": {
+            "PACKAGE_NAME": "com.gotsafety.gotsafety"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.gotsafety.gotsafety"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.gotsafety.gotsafety"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.gotsafety.gotsafety"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.gotsafety.gotsafety"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.gotsafety.gotsafety"
+        }
+    },
+    "dependent_plugins": {}
+}

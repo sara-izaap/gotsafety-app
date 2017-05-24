@@ -1,0 +1,26 @@
+<ion-view view-title="Webinars" cache-view="false">
+    
+    <ion-header class="bar bar-subheader d-bar">
+      <div class="bar-header item-input-inset search">
+          <label class="item-input-wrapper">
+            <input type="search" placeholder="Search" data-width="full" ng-model = "SearchQuery">
+            <i class="icon ion-ios-search-strong placeholder-icon"></i>
+          </label>         
+        </div>
+    </ion-header>
+
+    <ion-content ng-class="{expanded:$scope.isExpanded}">
+      <div class="list webinars animate-fade-slide-in-left">
+
+            <a href="#/app/webinarView/{{webinar.id}}"  class="item item-icon-right" ng-repeat="webinar in webinars | filter : SearchQuery"> 
+              <i class="icon ion-chevron-right"></i>
+              {{webinar.title}}
+            </a>  
+
+            <div ng-if="webinars==''" class="bar button button-assertive button-clear">
+              <h1 class="title">No Webinars found!</h1>
+            </div>  
+      
+      </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,48 @@
+<ion-view class="play-lessions" view-title="Safety Lessons" >
+    <ion-header class="bar bar-subheader s-bar">
+      <div class="language-filter">
+          <label class="item item-input item-select item-assertive">
+            <div class="input-label">
+              Language
+            </div>
+            <select name="language" id="language" ng-options="lang.lang for lang in langlist.languages track by lang.id" ng-model="langlist.optionSelected" ng-change="selectUpdated()">
+            </select>
+          </label>
+        </div>  
+        <div class="bar-header item-input-inset search">
+          
+          <label class="item-input-wrapper">
+            <input type="search" placeholder="Search" data-width="full" ng-model = "SearchQuery">
+            <i class="icon ion-ios-search-strong placeholder-icon"></i>
+          </label>
+          
+        </div>
+      </ion-header>  
+    <ion-content ng-class="{expanded:$scope.isExpanded}">
+
+        <!-- Lesons  Name -->
+        <div class="list lessons animate-fade-slide-in-left">
+        <ion-list>
+
+           <div ng-if="playlists.length > 0 "> 
+              <h2>Play Lists</h2>
+             <a ui-sref="app.playlistView({ id:{{playlist.id}} })"  class="item item-icon-right" ng-repeat="playlist in playlists | filter : SearchQuery">             
+              {{playlist.playlist_name}}
+            </a>
+          </div>
+
+          <div ng-if="lessons.length > 0 ">
+            <h2 ng-if="playlists.length > 0">Lessons</h2>
+            <a ui-sref="app.lessonView({ id:{{lesson.lesson_id}},language:{{lesson.language}} })"  class="item item-icon-right" ng-repeat="lesson in lessons | filter : SearchQuery | limitTo:numofrecload"> 
+              <i ng-if="lesson.rec_lesson!='1'" class="icon ion-chevron-right"></i>
+              <i ng-if="lesson.rec_lesson=='1'" class="icon ion-ios-star"></i> 
+              {{lesson.title}}
+            </a> 
+          </div>  
+
+        </ion-list>  
+        <ion-infinite-scroll icon="ion-loading-c" on-infinite="loadMoreData()" spinner="bubbles" distance="4%"> </ion-infinite-scroll>     
+        </div>
+        
+    </ion-content>
+</ion-view>

@@ -1,0 +1,39 @@
+<ion-view view-title="Safety Lessons">
+  <ion-header class="bar bar-subheader l-bar">
+      <div class="language-filter indlessview">
+          <label class="item item-input item-select item-assertive lsslangview_sel">            
+            <select name="language" id="language" ng-options="lang.name for lang in langlist.languages track by lang.id" ng-model="langlist.optionSelected" ng-change="selectUpdated()">
+            </select>
+          </label>
+      </div>  
+     </ion-header> 
+
+   <ion-content ng-class="{expanded:$scope.isExpanded}">
+
+
+      <div class="card box">
+          <div class="item item-text-wrap">
+            
+            <button ng-if="langlesson.l_url && langlesson.l_url !='' " class="button button-full lesson-btn-round" navigate-To="{{langlesson.l_url}}"  less-Hear="hearing">Audio Lesson </button>
+            <!--ng-click="playaudio(langlesson.l_url)"-->
+
+           <h2>{{langlesson.title}}</h2>
+            
+            <div class="red lescontrender" ng-bind-html="langlesson.content"></div>
+
+             <button ng-if="langlesson.l_url_video && langlesson.l_url_video !='' " class="button button-full lesson-btn-round" navigate-To="{{langlesson.l_url_video}}" less-Hear="hearing">Video Lesson </button> 
+             <!--navigate-To="{{langlesson.l_url_video}}"-->
+
+          </div>
+      </div>
+
+      <div class="lessons-view animate-fade-slide-in-left"> 
+        <div class="item item-text-wrap">             
+
+          <button class="button button-full button-danger" ng-click = "signoff()">
+          Sign Off
+          </button>
+        </div>
+      </div>
+   </ion-content>
+</ion-view>

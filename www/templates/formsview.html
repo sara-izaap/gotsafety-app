@@ -1,0 +1,44 @@
+<ion-view view-title="Forms" cache-view="false">
+
+   <ion-content padding="true" ng-class="{expanded:$scope.isExpanded}">
+   		
+   		<div class="formview card box">
+	   		
+		    <form name="accidentInvestigation" ng-submit = "formpost($scope.formdata)" class="list" validate>
+
+		        <div bind-html-compile="forms"></div>
+
+		        <div class="item item-text-wrap person_name">
+			         <p> 
+		              <b> Employee Name </b> 
+		            </p>
+		            
+		            <typeahead items="employees" prompt="Type your name" title="employee_name" subtitle="emp_id"  model="default_th_search" details="sel_employee" on-select="onItemSelected( sel_employee )" data-id="name-filter"> </typeahead>
+
+		             <a class="button button-full button-primary" ng-click="capturephoto()" >Capture Photo</a>
+		             <img id="myImage" src="" class="capture_img" style="display:none;">
+
+		            <p> <b> Draw your signature</b> </p>
+
+		            <ion-scroll class="signaturepad" scroll="false" scrollbar-x="false" scrollbar-y="false"> 
+		                <div class="sign-pad">
+		                  <canvas id='signature-pad'></canvas>
+		                </div>
+		              </ion-scroll>
+
+		            <div class="button-bar custom-buton-bar">               
+		                <a class="button button-clear button-small button-assertive" id = "clear"> Clear  </a>
+		            </div>
+		   
+
+		       	</div>
+		       	<div class="padding">        
+		          <button class="button button-full button-danger" type="submit" >Submit</button>
+		        </div> 
+		    </form> 
+		</div>   
+    	<!--  
+   		<formview typename="{{typename}}"> </formview> -->
+
+   </ion-content>
+</ion-view>

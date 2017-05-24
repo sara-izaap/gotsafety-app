@@ -1,0 +1,32 @@
+<ion-view view-title="Login" align-title="left">
+    <ion-content>
+        <div class="hero no-header flat main-logo">
+            <div class="content">
+                <div class="app-icon">
+                    <img src="img/logo.png" />
+                </div>
+            </div>
+        </div>
+
+        <div class="list home-login">
+            <label class="item item-input"  enter-as-tab>
+                <input type="text" placeholder="Username" ng-model="data.username">
+            </label>
+            <div class="hairline"></div>
+            <label class="item item-input">
+                <input type="password" placeholder="Password" ng-model="data.pwd" ng-enter="login(data)">
+            </label>
+            <ion-list class="remember-me">
+              <ion-checkbox ng-model="data.rem" ng-checked="data.rem" class="checkbox-assertive">Remember Me</ion-checkbox>
+            </ion-list>
+              
+        </div>
+
+        <div class="text-center">
+            <button ng-click="login(data)" class="button ink button-login">&nbsp;</button>
+        </div>
+     
+    </ion-content>
+</ion-view>
+
+

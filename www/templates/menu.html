@@ -1,0 +1,68 @@
+<ion-side-menus enable-menu-with-back-views="true">
+   <ion-side-menu-content>
+      <ion-nav-bar class="bar-assertive-900" ng-class="{expanded: isExpanded, 'has-header-fab-left': hasHeaderFabLeft, 'has-header-fab-right': hasHeaderFabRight}" align-title="center">
+         <ion-nav-back-button class="no-text"></ion-nav-back-button>
+         <ion-nav-buttons side="right">
+            <button  class="button button-icon button-clear ion-navicon-round" menu-toggle="right">
+            </button>           
+           
+         </ion-nav-buttons>
+      </ion-nav-bar>
+      <ion-nav-view name="fabContent"></ion-nav-view>
+      <ion-nav-view name="menuContent" ng-class="{expanded: isExpanded}" ></ion-nav-view>
+   </ion-side-menu-content>
+
+   <ion-side-menu side="right">
+      <!-- <ion-header-bar class="dark-bg expanded">
+         <span class="avatar" style="background: url('img/crown.jpg'); background-size: cover;"></span>
+         <h2>Thronester</h2>
+         </ion-header-bar> -->
+      <ion-content class="nav-ui-bg no-header custom-nav">
+         <div class="custom-nav-logo">
+            <!-- <span class="avatar" style="background: url('img/crown.jpg'); background-size: cover;"></span> -->
+            <span>
+               <img src="img/logo.png" alt="" />
+            </span>
+         </div>
+         <ion-list>
+
+             <ion-item nav-clear menu-close class="item clientname" >
+               Client : {{clientname}}               
+            </ion-item>   
+
+            <ion-item nav-clear menu-close ui-sref="app.safetyLessons" class="item item-icon-left item-icon-right " >
+               <i class="icon icon-lessons" icon-direction="left" ></i>
+               Safety Lessons
+               <i class="icon ion-chevron-right"  icon-direction="right"></i>
+            </ion-item>           
+            <ion-item nav-clear menu-close ui-sref="app.documentation" class="item item-icon-left item-icon-right" >
+               <i class="icon icon-document" icon-direction="left"></i>
+               Documentation
+               <i class="icon ion-chevron-right" icon-direction="right"></i>
+            </ion-item>
+            <ion-item nav-clear menu-close ui-sref="app.forms" class="item item-icon-left item-icon-right" >
+               <i class="icon icon-form" icon-direction="left"></i>
+               Forms
+               <i class="icon ion-chevron-right" icon-direction="right"></i>
+            </ion-item>
+           
+            <ion-item nav-clear menu-close ui-sref="app.repositorytree" class="item item-icon-left item-icon-right" >
+                    <i class="icon icon-sticker" icon-direction="left"></i>
+                    Repository Tree
+                    <i class="icon ion-chevron-right" icon-direction="right"></i>
+            </ion-item>
+             <ion-item nav-clear menu-close ui-sref="app.webinars" class="item item-icon-left item-icon-right" >
+               <i class="icon icon-webinars" icon-direction="left"></i>
+               Webinars
+               <i class="icon ion-chevron-right" icon-direction="right"></i>
+            </ion-item>
+
+            <ion-item nav-clear menu-close  class="item item-icon-left item-icon-right" ng-click = "logout()" >
+               <i class="icon icon-logout" icon-direction="left"></i>
+               Logout
+               <i class="icon ion-chevron-right" icon-direction="right"></i>
+            </ion-item>
+         </ion-list>
+      </ion-content>
+   </ion-side-menu>
+</ion-side-menus>

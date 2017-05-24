@@ -1,0 +1,20 @@
+<ion-view view-title="{{webinar.title}}">
+    <ion-content ng-class="{expanded:$scope.isExpanded}">
+        
+        <div class="card lessons-view animate-fade-slide-in-left">
+          <div class="item item-text-wrap">
+
+            <h2>{{webinar.title}}</h2>
+
+            <button class="button button-full lesson-btn-round" navigate-To="{{webinar.link}}" >Watch Video</button>
+           
+            <div ng-if="webinar.web_desc" class="red" ng-bind-html="webinar.web_desc"></div>
+              
+            <p ng-if="webinar.web_desc==''">EEAP "The Safety People" discusses Jobsite Safety General Vs Sub-Contractor Responsibilities. Often times construction sites are cohabitated by multiple employers. When it comes to the safety of the employees, it can be difficult to determine where the responsibilities lie. While ultimately every employer is responsible for the safety of its employees, Cal/OSHA often holds multiple employers responsible for the safety of other company's employees. In this webinar, you'll learn about safety responsibilities at dual employer and multiple employer worksites, the classifications that Cal/OSHA uses to determine them, and how to qualify sub contractor's for your jobsites.</p>
+            
+
+          </div>
+        </div>
+
+    </ion-content>
+</ion-view>

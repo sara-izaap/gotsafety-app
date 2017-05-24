@@ -1,0 +1,52 @@
+
+Ionic & Cordova installation
+-----------------------------------
+
+npm install -g ionic
+
+npm install -g cordova
+
+
+Plugins list
+-----------------------------------
+
+//corodva plugin add http://github.com/don/cordova-filechooser.git
+
+cordova plugin add cordova-plugin-camera@2.3.1
+
+cordova plugin add cordova-plugin-compat
+
+cordova plugin add cordova-plugin-console
+
+cordova plugin add cordova-plugin-device
+
+cordova plugin add cordova-plugin-file@4.3.1
+
+cordova plugin add cordova-plugin-file-opener2
+
+cordova plugin add cordova-plugin-file-transfer
+
+cordova plugin add cordova-plugin-inappbrowser
+
+cordova plugin add cordova-plugin-screen-orientation
+
+cordova plugin add cordova-plugin-splashscreen
+
+cordova plugin add cordova-plugin-statusbar
+
+cordova plugin add cordova-plugin-whitelist
+
+cordova plugin add ionic-plugin-keyboard
+
+New Plugin
+----------------
+cordova plugin add  cordova-plugin-geolocation
+
+
+Platform generation
+------------------------------------
+
+ionic platform add ios
+
+ionic platform add android
+

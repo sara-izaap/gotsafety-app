@@ -1,0 +1,49 @@
+<ion-view view-title="SignOff">
+    <ion-content ng-class="{expanded:$scope.isExpanded}">
+
+    <form>
+      
+
+      <div class="card">
+        <div class="item item-text-wrap">
+            
+            <p> <b> Name and Signature Required / Nombre y Firma Requerida </b> </p>
+            <div class="person_name">
+            <typeahead items="employees" prompt="Type your name" title="employee_name" subtitle="emp_id"  model="default_th_search" details="sel_employee" on-select="onItemSelected( sel_employee )" data-id="name-filter"> </typeahead>
+            </div>
+
+            <p> <b> Additional Info </b> </p>
+
+            <label class="additional-info item item-input"  name="additionalinfo">
+                <input placeholder="10 digit Alpha-numeric" type="text" ng-model="data.additional_info">
+            </label>
+
+            <p> <b> Draw your signature/Dibuja tu firma </b> </p>
+
+              <ion-scroll class="signaturepad" scroll="false" scrollbar-x="false" scrollbar-y="false"> 
+                <div class="sign-pad">
+                  <canvas id='signature-pad'></canvas>
+                </div>
+              </ion-scroll>
+
+              <div class="button-bar custom-buton-bar">               
+                <button class="button button-clear button-small button-assertive" id = "clear"> Clear  </button>
+              </div>
+
+              <div>
+                <p>
+                  Signing and Clicking this button indicates that I have received and understand this training material / Firmar y hacer clic en este botón indica que he recibido y entender este material de formación.        
+                </p>
+              </div>
+
+              <button class="button button-full button-danger" ng-click = "save(data.additional_info)"> I Agree / Estoy De Acuerdo </button>
+        </div>  
+      </div>
+        </div>  
+      </div>
+     </form>
+
+
+
+        </ion-content>
+</ion-view>
