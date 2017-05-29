@@ -632,7 +632,7 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('FormsCtrl', function($scope, $stateParams, $state, $ionicLoading, $timeout, ionicMaterialInk, ionicMaterialMotion, FormService,$cordovaFileTransfer) {
+.controller('FormsCtrl', function($scope, $stateParams, $state, $ionicLoading, $timeout, ionicMaterialInk, ionicMaterialMotion, FormService) {
     // Set Header
     $scope.$parent.showHeader();
     $scope.$parent.clearFabs();
@@ -659,40 +659,6 @@ angular.module('starter.controllers', [])
     // Set Ink
     ionicMaterialInk.displayEffect();
 
-
-    $scope.pdfdownload = function(url) {
-         
-         $ionicLoading.show({
-            content: 'Downloading...',
-            animation: 'fade-in',
-            showBackdrop: false,
-            maxWidth: 150,
-            showDelay: 0
-          });
-
-        // File name only
-        var filename = url.split("/").pop();
-         
-        // Save location
-        var targetPath = 'file:///storage/emulated/0/Download/'+filename; //cordova.file.dataDirectory + filename;
-        
-        if (ionic.Platform.isIOS() || ionic.Platform.isIPad()) {
-            targetPath = cordova.file.documentsDirectory + filename;
-        }
-     
-        $cordovaFileTransfer.download(url, targetPath, {}, true).then(function (result) {
-            //alert(JSON.stringify(result));
-            $ionicLoading.hide();
-            $ionicPopup.alert({ title: 'Success', template: 'Donloaded success...' });
-        }, function (error) {
-            //alert(JSON.stringify(error));
-             $ionicLoading.hide();
-             $ionicPopup.alert({ title: 'error', template: 'Download failed...' });
-        }, function (progress) {
-            // PROGRESS HANDLING GOES HERE
-        });
-
-    }
     var client_id = window.localStorage.getItem('client_id');
 
      //forms content
@@ -711,6 +677,32 @@ angular.module('starter.controllers', [])
 })
 
 .controller('FormsviewCtrl', function($scope,$filter, $stateParams, $state, $ionicHistory, $ionicPopup, $ionicLoading, $timeout, ionicMaterialInk, ionicMaterialMotion, FormService, $sce, employeeDetails,$cordovaCamera,$cordovaGeolocation) {
+   
+    document.addEventListener('deviceready', function(){
+        $scope.$on('$ionicView.beforeEnter', function(){ 
+            window.screen.lockOrientation('landscape');
+            if (ionic.Platform.isIOS() || ionic.Platform.isIPad())
+                $scope.init();
+        });
+
+        $scope.$on('$ionicView.beforeLeave', function(){ 
+            window.screen.unlockOrientation();
+            if (ionic.Platform.isIOS() || ionic.Platform.isIPad())
+                $scope.init();
+        });
+    });   
+    
+    //IOS lock orientation code
+    $scope.init = function(){
+        StatusBar.overlaysWebView(true);
+        StatusBar.overlaysWebView(false);
+
+        StatusBar.hide();
+        $timeout(function() {
+          StatusBar.show();
+        }, 1000);
+    }
+
     // Set Header
     $scope.$parent.showHeader();
     $scope.$parent.clearFabs();
