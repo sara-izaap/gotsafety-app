@@ -164,6 +164,10 @@ angular.module('starter.controllers', [])
         });
     }, 700);
 
+    $scope.group_logo = "img/logo.png";
+    var img = window.localStorage.getItem('group_logo');
+    if(img)
+        $scope.group_logo = img;
 
 
 })
@@ -387,32 +391,6 @@ angular.module('starter.controllers', [])
 
 .controller('signoffCtrl', function($scope, $stateParams, $state, employeeDetails, $ionicPopup,$ionicHistory,$ionicLoading,$timeout,$cordovaGeolocation) {
 
-    document.addEventListener('deviceready', function(){
-
-        $scope.$on('$ionicView.beforeEnter', function(){ 
-            window.screen.lockOrientation('landscape');
-            if (ionic.Platform.isIOS() || ionic.Platform.isIPad())
-                $scope.init();
-        });
-
-        $scope.$on('$ionicView.beforeLeave', function(){ 
-            window.screen.unlockOrientation();
-            if (ionic.Platform.isIOS() || ionic.Platform.isIPad())
-                $scope.init();
-        });
-    });   
-    
-    //IOS lock orientation code
-    $scope.init = function(){
-        StatusBar.overlaysWebView(true);
-        StatusBar.overlaysWebView(false);
-
-        StatusBar.hide();
-        $timeout(function() {
-          StatusBar.show();
-        }, 1000);
-    }
-   
     var lesson_id = $stateParams.id,
     
 	client_id = window.localStorage.getItem('client_id'),
@@ -678,31 +656,6 @@ angular.module('starter.controllers', [])
 
 .controller('FormsviewCtrl', function($scope,$filter, $stateParams, $state, $ionicHistory, $ionicPopup, $ionicLoading, $timeout, ionicMaterialInk, ionicMaterialMotion, FormService, $sce, employeeDetails,$cordovaCamera,$cordovaGeolocation) {
    
-    document.addEventListener('deviceready', function(){
-        $scope.$on('$ionicView.beforeEnter', function(){ 
-            window.screen.lockOrientation('landscape');
-            if (ionic.Platform.isIOS() || ionic.Platform.isIPad())
-                $scope.init();
-        });
-
-        $scope.$on('$ionicView.beforeLeave', function(){ 
-            window.screen.unlockOrientation();
-            if (ionic.Platform.isIOS() || ionic.Platform.isIPad())
-                $scope.init();
-        });
-    });   
-    
-    //IOS lock orientation code
-    $scope.init = function(){
-        StatusBar.overlaysWebView(true);
-        StatusBar.overlaysWebView(false);
-
-        StatusBar.hide();
-        $timeout(function() {
-          StatusBar.show();
-        }, 1000);
-    }
-
     // Set Header
     $scope.$parent.showHeader();
     $scope.$parent.clearFabs();
@@ -995,15 +948,13 @@ angular.module('starter.controllers', [])
                       }
                       else
                       {
-                        var targetPath = cordova.file.externalDataDirectory+filename;
-                        targetPath =  targetPath.replace("file://","");
+                        var targetPath = cordova.file.externalDataDirectory+filename;                       
                         //'file:///storage/emulated/0/Download/'+filename;
                       } 
 
                       $cordovaFileTransfer.download(url, targetPath, {}, true).then(function (result) {
 
                           $ionicLoading.hide();
-
                           //open the default application in app
                             $cordovaFileOpener2.open(
                               targetPath,

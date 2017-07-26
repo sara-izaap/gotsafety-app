@@ -27,8 +27,7 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services','io
                   }
                   else
                   {
-                    var targetPath = cordova.file.externalDataDirectory+filename;
-                    targetPath =  targetPath.replace("file://","");
+                    var targetPath = cordova.file.externalDataDirectory+filename;                    
                     //'file:///storage/emulated/0/Download/'+filename;
                   }  
 

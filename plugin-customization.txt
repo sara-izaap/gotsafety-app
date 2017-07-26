@@ -1,0 +1,17 @@
+Plugin customization
+
+1.Fileopener2
+
+	version: SDK 24+ 
+	filename:FileOpener2.java
+
+	private String stripFileProtocol(String uriString) {
+		if (uriString.startsWith("file://")) {
+			uriString = uriString.substring(7);
+		}
+
+		if (uriString.startsWith("content://")) {
+            uriString = uriString.substring(10);
+        }
+		return uriString;
+	}

@@ -9,5 +9,5 @@ pdfurls['forms']    = 'http://gotsafety.com/assets/images/frontend/safety_forms/
 pdfurls['posters']  = 'http://gotsafety.com/assets/images/frontend/posters_attachment/';
 
 angular.module('starter.constants',[])  
-  .constant('AppConfig',{'apiUrl': 'http://gotsafety.com/service/'})
+  .constant('AppConfig',{'apiUrl': 'http://gotsafety.com/dev/service/'})
   .constant('pdfUrls',pdfurls);

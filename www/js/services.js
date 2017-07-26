@@ -18,6 +18,7 @@ angular.module('starter.services', [])
          window.localStorage.setItem("user_id", uc.id);
          window.localStorage.setItem("client_id", uc.created_id);
          window.localStorage.setItem("client_name", uc.client_name);
+         window.localStorage.setItem("group_logo", uc.group_logo);
 
         window.localStorage.setItem(LOCAL_TOKEN_KEY, uc);
         useCredentials(uc);
@@ -37,6 +38,7 @@ angular.module('starter.services', [])
         window.localStorage.removeItem("user_id");
         window.localStorage.removeItem("client_id");
         window.localStorage.removeItem("client_name");
+        window.localStorage.removeItem("group_logo");
     }
 
     var login = function(name, password, rem) {
